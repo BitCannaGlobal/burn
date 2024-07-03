@@ -199,7 +199,7 @@ body {
     height: #{$fireSize}px;
     background: #ff9900;
     filter: blur(20px) contrast(30);
-    border: #{calc($fireSize / 2)}px solid #000;
+    border: #{$fireSize/2}px solid #000;
     border-bottom-color: transparent;
     border-radius: 40%;
     box-sizing: border-box;
@@ -208,7 +208,7 @@ body {
     .burn {
       position: absolute;
       top: #{$fireSize}px;
-      left: #{calc(-1 * calc($burnSize / 2))}px;
+      left: #{-$burnSize / 2}px;
       width: #{$burnSize}px;
       height: #{$burnSize}px;
       background: #000;
@@ -219,8 +219,8 @@ body {
           height: #{random(10)}px;
         }
         &:nth-child(#{$i}) {
-          height: #{random(calc($burnSize / 2))}px;
-          margin-left: #{random($fireSize) - calc($fireSize / 2)}px;
+          height: #{random($burnSize / 2)}px;
+          margin-left: #{random($fireSize) - $fireSize / 2}px;
           animation: burning #{random(2000) + 1000}ms -3000ms infinite linear;
         }
       }
