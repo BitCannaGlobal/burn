@@ -48,7 +48,7 @@
  
         <div class="mt-6 mb-10">
           <h2 class="text-h4 font-weight-black ">Total of BCNA burned</h2> 
-          <h2 class="roboto-medium text-h4 font-weight-black text-green">{{ finalBurn.number.toFixed(0) }} BCNA</h2> 
+          <h2 class="roboto-medium text-h4 font-weight-black text-green">{{ totalBurn }} BCNA</h2> 
           <div align="center" class="roboto-bold countdown mt-8">Next burn</div> 
           <vue3-flip-countdown v-if="isLoaded" :deadline="nextBurnDate" labelColor="white" />  
         </div>
@@ -70,7 +70,7 @@
 import { ref, reactive, watch } from 'vue'
 import moment from "moment";
 import { StargateClient } from "@cosmjs/stargate";
-import gsap from 'gsap'
+//import gsap from 'gsap'
 
 export default {
   name: "popupView",
@@ -102,8 +102,9 @@ export default {
       let convertAmount = Number(burnTx.events[13].attributes[1].value.replace("ubcna", ''))
       totalBurn += convertAmount
     }
+    console.log(totalBurn)
     this.totalBurn =  Number(totalBurn / 1000000).toFixed(0)  
-    gsap.to(this.finalBurn, { duration: 5, number: this.totalBurn || 0 })
+    //gsap.to(this.finalBurn, { duration: 5, number: this.totalBurn || 0 })
   },
   
   async mounted() {
