@@ -6,7 +6,13 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/", // for github pages
+  server: {
+    port: 5174,
+    strictPort: true,
+    hmr: {
+      port: 5174,
+    },
+  },
   plugins: [
     vue(),
     //VueDevTools(),

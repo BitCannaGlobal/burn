@@ -1,8 +1,9 @@
 import './assets/main.css'
+import '@mdi/font/css/materialdesignicons.css'
 
 import { createApp } from 'vue'
 import App from './App.vue'
-import Countdown from 'vue3-flip-countdown'
+import VueCountdown from '@chenfengyuan/vue-countdown';
 
 // Vuetify
 import 'vuetify/styles'
@@ -20,7 +21,7 @@ const vuetify = createVuetify({
 
 const app = createApp(App);
 
-app.use(Countdown)
+app.component(VueCountdown.name, VueCountdown);
 app.use(vuetify)
 
 app.mount('#app')
